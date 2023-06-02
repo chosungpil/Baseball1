@@ -31,32 +31,29 @@ public:
 		return result;
 	}
 private:
-	int getBallCount(string instr)
+	int getBallCount(string inStr)
 	{
 		int ballCount = 0;
-		if (instr[0] == answer[1])
-			ballCount++;
-		if (instr[0] == answer[2])
-			ballCount++;
-		if (instr[1] == answer[0])
-			ballCount++;
-		if (instr[1] == answer[2])
-			ballCount++;
-		if (instr[2] == answer[0])
-			ballCount++;
-		if (instr[2] == answer[1])
-			ballCount++;
+
+		for (int i = 0; i < 3; i++)
+		{
+			for (int j = 0; j < 3; j++)
+			{
+				if (i == j) continue;
+				if (inStr[0] == answer[0])
+					ballCount++;
+			}			
+		}
 		return ballCount;
 	}
 	int getstrikeCount(string inStr)
 	{
 		int strikeCount = 0;
-		if (inStr[0] == answer[0])
-			strikeCount++;
-		if (inStr[1] == answer[1])
-			strikeCount++;
-		if (inStr[2] == answer[2])
-			strikeCount++;
+		for (int i = 0; i < 3; i++)
+		{
+			if (inStr[0] == answer[0])
+				strikeCount++;
+		}
 		return strikeCount;
 	}
 	bool hasChar(string str)
